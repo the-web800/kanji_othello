@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>漢字オセロ</title>
+    <style>
+        table,
+        td {
+          height:2cm;
+          width:18cm;
+          border:1px solid;
+          text-align:center;
+          border-collapse: collapse;
+
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+        #edit{
+            margin-top: 6cm;
+        }
+        input{
+            border:none;
+            height: 1cm;
+            width:2cm;
+            font-size: 0.6cm;
+        }
+        #left{
+            float:left;
+            margin-right: 1cm;
+        }
+    </style>
+    <script>
+        function resetAll(){
+                var resetalert = confirm("リセットしますか");
+                if (resetalert) {
+                    location.reload();
+                }
+        }
+        function colorChange(celltd){
+            var table = document.getElementById('edit')
+            if (celltd.style.background == "blue"){
+                celltd.style.background = "red";
+                    var rowss = celltd.parentNode.rowIndex;
+                    var cellss = celltd.cellIndex;
+                    table.rows[rowss].cells[cellss].style.background = "red";
+            }else{
+                if (celltd.style.background == "red"){
+                    celltd.style.background = "white";
+                    var rowss = celltd.parentNode.rowIndex;
+                    var cellss = celltd.cellIndex;
+                    table.rows[rowss].cells[cellss].style.background = "white";
+                }else{
+                    celltd.style.background = "blue";
+                    var rowss = celltd.parentNode.rowIndex;
+                    var cellss = celltd.cellIndex;
+                    table.rows[rowss].cells[cellss].style.background = "blue";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<table id="left">
+    <tr>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+    </tr>
+    <tr>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+    </tr>
+    <tr>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td class="red" onclick="colorChange(this)"></td>
+        <td class="blue" onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+    </tr>
+    <tr>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td class="blue" onclick="colorChange(this)"></td>
+        <td class="red" onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+    </tr>
+    <tr>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+    </tr>
+    <tr>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+    </tr>
+</table>
+<table id="edit">
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td class="red"></td>
+        <td class="blue"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td class="blue"></td>
+        <td class="red"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+</table>
+<button onclick="resetAll()">リセット</button>
+</body>
+</html>
