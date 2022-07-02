@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>漢字オセロ</title>
+    <style>
+        table,
+        td {
+          height:2cm;
+          width:18cm;
+          border:1px solid;
+          text-align:center;
+          border-collapse: collapse;
+
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+        #edit{
+            margin: 0.5cm;
+        }
+        input{
+            border:none;
+            height: 1cm;
+            width:2cm;
+            font-size: 0.6cm;
+            text-align: center;
+        }
+        #left{
+            float:left;
+            margin: 0.5cm;
+        }
+        #htbl{
+            display: none;
+        }
+    </style>
+    </head>
+<body>
+<table id="left">
+    <tr>
+        <td onclick="colorChange(this)" ondblclick="opencn1()"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)" ondblclick="opencn6()"></td>
+    </tr>
+    <tr>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+    </tr>
+    <tr>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td class="red" onclick="colorChange(this)"></td>
+        <td class="blue" onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+    </tr>
+    <tr>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td class="blue" onclick="colorChange(this)"></td>
+        <td class="red" onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+    </tr>
+    <tr>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+    </tr>
+    <tr>
+        <td onclick="colorChange(this)" ondblclick="opencn27()"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)"></td>
+        <td onclick="colorChange(this)" ondblclick="opencn32()"></td>
+    </tr>
+</table>
+<table id="edit">
+    <tr>
+        <td id="td1"><input type="text" id="cn1"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td id="td6"><input type="text" id="cn6"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td class="red"></td>
+        <td class="blue"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td class="blue"></td>
+        <td class="red"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td id="td27"><input type="text" id="cn27"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td id="td32"><input type="text" id="cn32"></td>
+    </tr>
+</table>
+<table id="htbl">
+    <td id="hi1"></td>
+    <td id="hi6"></td>
+    <td id="hi27"></td>
+    <td id="hi32"></td>
+</table>
+<button onclick="resetAll()">リセット</button>
+<button onclick="hid()">角を隠す</button>
+    <script>
+            const chi1 = document.getElementById('hi1');
+            const chi6 = document.getElementById('hi6');
+            const chi27 = document.getElementById('hi27');
+            const chi32 = document.getElementById('hi32');
+            const ctd1 = document.getElementById('td1');
+            var ctd6 = document.getElementById('td6');
+            var ctd27 = document.getElementById('td27');
+            var ctd32 = document.getElementById('td32');
+        function resetAll(){
+                var resetalert = confirm("リセットしますか");
+                if (resetalert) {
+                    location.reload();
+                }
+        }
+        function colorChange(celltd){
+            var table = document.getElementById('edit')
+            if (celltd.style.background == "blue"){
+                celltd.style.background = "red";
+                    var rowss = celltd.parentNode.rowIndex;
+                    var cellss = celltd.cellIndex;
+                    table.rows[rowss].cells[cellss].style.background = "red";
+            }else{
+                if (celltd.style.background == "red"){
+                    celltd.style.background = "white";
+                    var rowss = celltd.parentNode.rowIndex;
+                    var cellss = celltd.cellIndex;
+                    table.rows[rowss].cells[cellss].style.background = "white";
+                }else{
+                    celltd.style.background = "blue";
+                    var rowss = celltd.parentNode.rowIndex;
+                    var cellss = celltd.cellIndex;
+                    table.rows[rowss].cells[cellss].style.background = "blue";
+                }
+            }
+        }
+        function hid(){
+            let corner1 = document.getElementById('cn1').value;
+            let corner6 = document.getElementById('cn6').value;
+            let corner27 = document.getElementById('cn27').value;
+            let corner32 = document.getElementById('cn32').value;
+                ctd1.innerHTML = '<image src="./1.jpg">';
+                ctd6.innerHTML = '<image src="./6.jpg">';
+                ctd27.innerHTML = '<image src="./27.jpg">';
+                ctd32.innerHTML = '<image src="./32.jpg">';
+                chi1.innerHTML = corner1;
+                chi6.innerHTML = corner6;
+                chi27.innerHTML = corner27;
+                chi32.innerHTML = corner32;
+        }
+        function opencn1(){
+                ctd1.innerText = chi1.innerText;
+        }
+        function opencn6(){
+                ctd6.innerText = chi6.innerText;
+        }
+        function opencn27(){
+                ctd27.innerText = chi27.innerText;
+        }
+        function opencn32(){
+                ctd32.innerText = chi32.innerText;
+        }
+        window.onbeforeunload = function(e) {
+            e.returnValue = "ページを離れようとしています。よろしいですか？";
+　　     }
+</script>
+
+
+</body>
+</html>
